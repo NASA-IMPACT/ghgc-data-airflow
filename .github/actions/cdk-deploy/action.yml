@@ -1,41 +1,12 @@
 name: Deploy
 
-on:
-  workflow_call:
-    inputs:
-      stage:
-        type: string
-        required: true
-      env-file:
-        type: string
-        required: true
-      environment:
-        type: string
-        required: true
-      aws-region:
-        type: string
-        required: true
-      role-session-name:
-        required: false
-        type: string
-        default: github-actions-deployment
-    secrets:
-      DEPLOYMENT_ROLE_ARN:
-        required: true
-      AWS_ACCOUNT_ID:
-        required: true
-      VPC_ID:
-        required: true
-      ASSUME_ROLE_ARNS:
-        required: true
-      VECTOR_VPC:
-        required: true
-      VECTOR_SECURITY_GROUP:
-        required: true
-      VECTOR_SECRET_NAME:
-        required: true
-
-
+inputs:
+  env_aws_secret_name:
+    required: true
+    type: string
+  dir:
+    required: true
+    type: string
 
 jobs:
   deploy:
