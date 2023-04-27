@@ -21,6 +21,12 @@ runs:
 
     - run: pip install -r deploy_requirements.txt
 
+    - name: Get relevant environment configuration from aws secrets
+      shell: bash
+      working-directory: ${{ inputs.dir }}
+      run: |
+        ./scripts/sync-env-local.sh ${{ inputs.env_aws_secret_name }}
+
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
