@@ -12,17 +12,14 @@ runs:
   using: "composite"
   steps:
 
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        lfs: "true"
-        submodules: "recursive"
-
     - name: Set up Python
+      shell: bash
       uses: actions/setup-python@v4
       with:
         python-version: "3.10"
         cache: "pip"
+
+    - run: pip install -r deploy_requirements.txt
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
@@ -31,6 +28,7 @@ runs:
 
     - name: Deploy
       shell: bash
+      working-directory: ${{ input.dir }}
       run: |
         ./scripts/deploy.sh ${{ inputs.env-file }} <<< init
         ./scripts/deploy.sh ${{ inputs.env-file }} <<< deploy
