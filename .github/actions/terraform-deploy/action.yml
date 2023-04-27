@@ -22,6 +22,7 @@ runs:
         cache: "pip"
 
     - name: Install python dependencies
+      shell: bash
       working-directory: ${{ inputs.dir }}
       run: pip install -r deploy_requirements.txt
 
@@ -38,7 +39,7 @@ runs:
 
     - name: Deploy
       shell: bash
-      working-directory: ${{ input.dir }}
+      working-directory: ${{ inputs.dir }}
       run: |
         ./scripts/deploy.sh ${{ inputs.env-file }} <<< init
         ./scripts/deploy.sh ${{ inputs.env-file }} <<< deploy
