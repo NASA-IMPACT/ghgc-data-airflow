@@ -8,8 +8,9 @@ inputs:
     required: true
     type: string
   dir:
-    required: true
+    required: false
     type: string
+    default: "."
 
 runs:
   using: "composite"
