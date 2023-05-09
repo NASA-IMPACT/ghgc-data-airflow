@@ -51,6 +51,7 @@ jobs:
   deploy:
     name: Deploy to ${{ needs.define-environment.outputs.env_name }} 🚀
     runs-on: ubuntu-latest
+    if: ${{ needs.define-environment.outputs.env_name }}
     needs: [gitflow-enforcer, define-environment]
     environment: ${{ needs.define-environment.outputs.env_name }}
     concurrency: ${{ needs.define-environment.outputs.env_name }}
