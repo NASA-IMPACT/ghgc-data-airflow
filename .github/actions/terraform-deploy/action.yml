@@ -43,4 +43,4 @@ runs:
       working-directory: ${{ inputs.dir }}
       run: |
         ./scripts/deploy.sh ${{ inputs.env-file }} <<< init
-        ./scripts/deploy.sh ${{ inputs.env-file }} <<< deploy
+        ./scripts/deploy.sh ${{ inputs.env-file }} <<< destroy

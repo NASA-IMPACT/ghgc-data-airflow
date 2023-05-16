@@ -89,7 +89,7 @@ cd ./infrastructure
 generate_terraform_variables
 check_create_remote_state $AWS_REGION $STATE_BUCKET_NAME $STATE_DYNAMO_TABLE
 
-read -rp 'action [init|plan|deploy]: ' ACTION
+read -rp 'action [init|plan|deploy|destroy]: ' ACTION
 case $ACTION in
   init)
     terraform init
@@ -101,8 +101,11 @@ case $ACTION in
   deploy)
     terraform apply --auto-approve
     ;;
+  destroy)
+    terraform destroy --auto-approve
+    ;;
   *)
-    echo "Chose from 'init', 'plan' or 'deploy'"
+    echo "Chose from 'init', 'plan', 'deploy', or 'destroy'"
     exit 1
     ;;
 esac
