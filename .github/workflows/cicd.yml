@@ -19,6 +19,7 @@ on:
 
 jobs:
   gitflow-enforcer:
+    name: GitFlow Enforcer 👮‍
     runs-on: ubuntu-latest
     steps:
       - name: Check branch
