@@ -10,7 +10,7 @@ on:
       - main
       - dev
       - production
-      - ghc-deploy-dev-mcp
+      - tf-destroy
   pull_request:
     branches:
       - main
@@ -43,6 +43,8 @@ jobs:
             echo "env_name=development" >> $GITHUB_OUTPUT
           elif [ "${{ github.ref }}" = "refs/heads/production" ]; then
             echo "env_name=production" >> $GITHUB_OUTPUT
+          elif [ "${{ github.ref }}" = "refs/heads/tf-destroy" ]; then
+            echo "env_name=staging" >> $GITHUB_OUTPUT
           fi
       - name: Print the environment
         run: echo "The environment is ${{ steps.define_environment.outputs.env_name }}"

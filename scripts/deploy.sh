@@ -101,6 +101,10 @@ case $ACTION in
   deploy)
     terraform apply --auto-approve
     ;;
+
+  destroy)
+    terraform destroy --auto-approve
+    ;;
   *)
     echo "Chose from 'init', 'plan' or 'deploy'"
     exit 1
