@@ -1,5 +1,8 @@
 # veda-data-pipelines
 
+> [!IMPORTANT]
+> The US GHG Center has started using [veda-data-airflow](https://github.com/NASA-IMPACT/veda-data-airflow/) repository directly for its data processing and STAC metadata creation. Hence, this forked version of the veda-data-airflow repository is no longer maintained and so the repository is now archived.
+
 This repo houses function code and deployment code for producing cloud-optimized
 data products and STAC metadata for interfaces such as https://github.com/NASA-IMPACT/delta-ui.
 
